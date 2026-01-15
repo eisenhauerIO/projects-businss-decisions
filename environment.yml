@@ -1,5 +1,4 @@
-name: student_project
-
+name: projects-student-template
 dependencies:
 - numpy
 - pandas

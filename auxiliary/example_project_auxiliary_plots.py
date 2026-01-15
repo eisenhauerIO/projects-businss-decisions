@@ -166,8 +166,8 @@ def plot_figure1(data, bins, pred):
     ---------
         matplotlib.pyplpt.plot
     """
-    plt.pyplot.xlim(-1.5, 1.5, 0.1)
-    plt.pyplot.ylim(0, 2100.5, 50)
+    plt.pyplot.xlim(-1.5, 1.5)
+    plt.pyplot.ylim(0, 2100.5)
     plt.pyplot.axvline(x=0, color="r")
     plt.pyplot.xlabel("First year GPA minus probation cutoff")
     plt.pyplot.ylabel("Frequency count")
@@ -182,7 +182,7 @@ def plot_figure2(data, pred):
     """
     Plots Figure 2.
     """
-    plt.pyplot.xlim(-1.5, 1.5, 0.1)
+    plt.pyplot.xlim(-1.5, 1.5)
     plt.pyplot.plot(data["dist_from_cut_med10"], data["gpalscutoff"], "o")
     plot_RDD_curve(
         df=pred, running_variable="dist_from_cut", outcome="prediction", cutoff=0
@@ -224,8 +224,8 @@ def plot_figure3(inputs_dict, outputs_dict, keys):
         # Define position of subplot.
         plt.pyplot.subplot(3, 2, idx + 1)
         # Create frame for subplot.
-        plt.pyplot.xlim(-1.5, 1.5, 0.1)
-        plt.pyplot.ylim(0, 0.22, 0.1)
+        plt.pyplot.xlim(-1.5, 1.5)
+        plt.pyplot.ylim(0, 0.22)
         plt.pyplot.axvline(x=0, color="r")
         plt.pyplot.xlabel("First year GPA minus probation cutoff")
         plt.pyplot.ylabel("Left university voluntarily")
@@ -252,8 +252,8 @@ def plot_figure4(data, pred):
     Plots Figure 4.
     """
     plt.pyplot.figure(figsize=(8, 5))
-    plt.pyplot.xlim(-1.5, 1.5, 0.1)
-    plt.pyplot.ylim(-1, 1.5, 0.1)
+    plt.pyplot.xlim(-1.5, 1.5)
+    plt.pyplot.ylim(-1, 1.5)
     plt.pyplot.axvline(x=0, color="r")
     plt.pyplot.xlabel("First year GPA minus probation cutoff")
     plt.pyplot.ylabel("Subsequent GPA minus Cutoff")
@@ -269,8 +269,8 @@ def plot_figure5(data, pred_1, pred_2, pred_3):
     Plots Figure 5.
     """
     plt.pyplot.figure(figsize=(8, 5))
-    plt.pyplot.xlim(-1.5, 1.5, 0.1)
-    plt.pyplot.ylim(0, 1, 0.1)
+    plt.pyplot.xlim(-1.5, 1.5)
+    plt.pyplot.ylim(0, 1)
     plt.pyplot.axvline(x=0, color="r")
     plt.pyplot.xlabel("First year GPA minus probation cutoff")
     plt.pyplot.ylabel("Has Graduated")
@@ -326,8 +326,8 @@ def plot_figure4_with_CI(data, pred):
     Plots Figure 4 with confidence intervals.
     """
     plt.pyplot.figure(figsize=(8, 6))
-    plt.pyplot.xlim(-1.5, 1.5, 0.1)
-    plt.pyplot.ylim(-0.5, 1.2, 0.1)
+    plt.pyplot.xlim(-1.5, 1.5)
+    plt.pyplot.ylim(-0.5, 1.2)
     plt.pyplot.axvline(x=0, color="r")
     plt.pyplot.xlabel("First year GPA minus probation cutoff")
     plt.pyplot.ylabel("Subsequent GPA minus Cutoff")
@@ -348,8 +348,8 @@ def plot_figure4_with_CI(data, pred):
 
 def plot_figure_credits_year2(data, pred):
     plt.pyplot.figure(figsize=(8, 5))
-    plt.pyplot.xlim(-1.5, 1.5, 0.1)
-    plt.pyplot.ylim(2.5, 5, 0.1)
+    plt.pyplot.xlim(-1.5, 1.5)
+    plt.pyplot.ylim(2.5, 5)
     plt.pyplot.axvline(x=0, color="r")
     plt.pyplot.xlabel("First year GPA minus probation cutoff")
     plt.pyplot.ylabel("Total credits in year 2")
@@ -363,8 +363,8 @@ def plot_figure_credits_year2(data, pred):
 
 
 def plot_left_school_all(data, pred):
-    plt.pyplot.xlim(-1.5, 1.5, 0.1)
-    plt.pyplot.ylim(0, 0.22, 0.1)
+    plt.pyplot.xlim(-1.5, 1.5)
+    plt.pyplot.ylim(0, 0.22)
     plt.pyplot.axvline(x=0, color="r")
     plt.pyplot.xlabel("First year GPA minus probation cutoff")
     plt.pyplot.ylabel("Left university voluntarily")
@@ -381,8 +381,8 @@ def plot_left_school_all(data, pred):
 
 def plot_nextCGPA(data, pred):
     plt.pyplot.figure(figsize=(8, 5))
-    plt.pyplot.xlim(-1.5, 1.5, 0.1)
-    plt.pyplot.ylim(-1, 1.5, 0.1)
+    plt.pyplot.xlim(-1.5, 1.5)
+    plt.pyplot.ylim(-1, 1.5)
     plt.pyplot.axvline(x=0, color="r")
     plt.pyplot.xlabel("First year GPA minus probation cutoff")
     plt.pyplot.ylabel("Subsequent CGPA minus cutoff")

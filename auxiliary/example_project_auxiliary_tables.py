@@ -2,6 +2,7 @@
 
 import pandas as pd
 import statsmodels as sm
+import statsmodels.regression.linear_model
 
 
 def color_pvalues(value):
@@ -179,8 +180,7 @@ def create_table1(data):
         "Graduated by year  6",
     ]
 
-    table1.loc[0:9, "Type"] = "Characteristics"
-    table1.loc[9:, "Type"] = "Outcomes"
+    table1["Type"] = ["Characteristics"] * 9 + ["Outcomes"] * 9
 
     return table1
 

@@ -3,6 +3,7 @@
 import numpy as np
 import pandas as pd
 import statsmodels as sm
+import statsmodels.regression.linear_model
 
 from auxiliary.example_project_auxiliary_tables import estimate_RDD_multiple_datasets
 
@@ -15,18 +16,18 @@ def prepare_data(data):
     data.loc[:, "const"] = 1
 
     # Add dummy for being above the cutoff in next GPA
-    data["nextGPA_above_cutoff"] = np.NaN
+    data["nextGPA_above_cutoff"] = np.nan
     data.loc[data.nextGPA >= 0, "nextGPA_above_cutoff"] = 1
     data.loc[data.nextGPA < 0, "nextGPA_above_cutoff"] = 0
 
     # Add dummy for cumulative GPA being above the cutoff
-    data["nextCGPA_above_cutoff"] = np.NaN
+    data["nextCGPA_above_cutoff"] = np.nan
     data.loc[data.nextCGPA >= 0, "nextCGPA_above_cutoff"] = 1
     data.loc[data.nextCGPA < 0, "nextCGPA_above_cutoff"] = 0
 
     # Remove zeros from total credits for people whose next GPA is missing
     data["total_credits_year2"] = data["totcredits_year2"]
-    data.loc[np.isnan(data.nextGPA), "total_credits_year2"] = np.NaN
+    data.loc[np.isnan(data.nextGPA), "total_credits_year2"] = np.nan
     # Add variable for campus specific cutoff
     data["cutoff"] = 1.5
     data.loc[data.loc_campus3 == 1, "cutoff"] = 1.6
@@ -48,9 +49,8 @@ def calculate_bin_frequency(data, bins):
         bin_frequency(pd.DataFrame): Dataframe that contains the frequency of each bin in
         data and and a constant.
     """
-    bin_frequency = pd.DataFrame(data[bins].value_counts())
-    bin_frequency.reset_index(level=0, inplace=True)
-    bin_frequency.rename(columns={"index": "bins", bins: "freq"}, inplace=True)
+    bin_frequency = data[bins].value_counts().reset_index()
+    bin_frequency.columns = ["bins", "freq"]
     bin_frequency = bin_frequency.sort_values(by=["bins"])
     bin_frequency["const"] = 1
 
