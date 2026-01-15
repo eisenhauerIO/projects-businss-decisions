@@ -5,3 +5,12 @@ repos:
       - id: ruff
         args: [--fix]
       - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: run-notebook
+        name: Run Jupyter Notebook
+        entry: jupyter nbconvert --to notebook --execute --inplace project.ipynb
+        language: system
+        files: ^(project\.ipynb|auxiliary/.*\.py)$
+        pass_filenames: false
