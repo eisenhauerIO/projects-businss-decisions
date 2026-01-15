@@ -173,9 +173,7 @@ def plot_figure1(data, bins, pred):
     plt.ylabel("Frequency count")
     plt.plot(data.bins, data.freq, "o")
     plot_RDD_curve(df=pred, running_variable="bins", outcome="prediction", cutoff=0)
-    plt.title(
-        "Figure 1. Distribution of Student Grades Relative to their Cutoff"
-    )
+    plt.title("Figure 1. Distribution of Student Grades Relative to their Cutoff")
 
 
 def plot_figure2(data, pred):
@@ -353,9 +351,7 @@ def plot_figure_credits_year2(data, pred):
     plt.axvline(x=0, color="r")
     plt.xlabel("First year GPA minus probation cutoff")
     plt.ylabel("Total credits in year 2")
-    plt.plot(
-        data.total_credits_year2.groupby(data["dist_from_cut_med10"]).mean(), "o"
-    )
+    plt.plot(data.total_credits_year2.groupby(data["dist_from_cut_med10"]).mean(), "o")
     plot_RDD_curve(
         df=pred, running_variable="dist_from_cut", outcome="prediction", cutoff=0
     )
