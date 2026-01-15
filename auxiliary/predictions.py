@@ -5,7 +5,7 @@ import pandas as pd
 import statsmodels as sm
 import statsmodels.regression.linear_model
 
-from auxiliary.example_project_auxiliary_tables import estimate_RDD_multiple_datasets
+from auxiliary.tables import estimate_RDD_multiple_datasets
 
 
 def prepare_data(data):
