@@ -1,7 +1,9 @@
 """This module contains auxiliary functions for RD predictions used in the main notebook."""
+
 import numpy as np
 import pandas as pd
 import statsmodels as sm
+
 from auxiliary.example_project_auxiliary_tables import estimate_RDD_multiple_datasets
 
 
@@ -81,7 +83,6 @@ def create_groups_dict(data, keys, columns):
 
 
 def create_predictions(data, outcome, regressors, bandwidth):
-
     steps = np.arange(-1.2, 1.25, 0.05)
     predictions_df = pd.DataFrame([])
     # Ensure there are no missings in the outcome variable.
@@ -106,8 +107,9 @@ def create_predictions(data, outcome, regressors, bandwidth):
             predictions_df.loc[step, "gpalscutoff"] = 0
 
         predictions_df.loc[step, "gpaXgpalscutoff"] = (
-            predictions_df.loc[step, "dist_from_cut"]
-        ) * predictions_df.loc[step, "gpalscutoff"]
+            (predictions_df.loc[step, "dist_from_cut"])
+            * predictions_df.loc[step, "gpalscutoff"]
+        )
         predictions_df.loc[step, "gpaXgpagrcutoff"] = (
             predictions_df.loc[step, "dist_from_cut"]
         ) * (1 - predictions_df.loc[step, "gpalscutoff"])
@@ -168,7 +170,6 @@ def create_fig3_predictions(groups_dict, regressors, bandwidth):
     predictions_groups_dict = {}
     # Loop through groups:
     for group in groups_dict:
-
         steps = np.arange(-1.2, 1.25, 0.05)
         predictions_df = pd.DataFrame([])
 
@@ -195,8 +196,9 @@ def create_fig3_predictions(groups_dict, regressors, bandwidth):
                 predictions_df.loc[step, "gpalscutoff"] = 0
 
             predictions_df.loc[step, "gpaXgpalscutoff"] = (
-                predictions_df.loc[step, "dist_from_cut"]
-            ) * predictions_df.loc[step, "gpalscutoff"]
+                (predictions_df.loc[step, "dist_from_cut"])
+                * predictions_df.loc[step, "gpalscutoff"]
+            )
 
             predictions_df.loc[step, "gpaXgpagrcutoff"] = (
                 predictions_df.loc[step, "dist_from_cut"]

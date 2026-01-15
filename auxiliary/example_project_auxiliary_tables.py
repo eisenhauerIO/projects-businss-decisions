@@ -1,4 +1,5 @@
 """Auxiliary functions for the creation of tables in the main notebook."""
+
 import pandas as pd
 import statsmodels as sm
 

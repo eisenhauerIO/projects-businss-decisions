@@ -1,4 +1,5 @@
 """Auxiliary functions for plotting which are used in the main notebook."""
+
 import matplotlib as plt
 import pandas as pd
 
