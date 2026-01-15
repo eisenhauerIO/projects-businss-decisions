@@ -29,10 +29,4 @@ jobs:
       - name: Run notebook
         shell: micromamba-shell {0}
         run: |
-          jupyter nbconvert --to notebook --execute --inplace project.ipynb
-
-      - name: Upload executed notebook
-        uses: actions/upload-artifact@v4
-        with:
-          name: executed-notebook
-          path: project.ipynb
+          pytest --nbmake project.ipynb

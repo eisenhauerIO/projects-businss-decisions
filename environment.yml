@@ -11,4 +11,8 @@ dependencies:
 - ruff
 - pre-commit
 - nbconvert
+- pytest
+- ipykernel
 - pip
+- pip:
+    - nbmake
