@@ -15,17 +15,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Micromamba
+        uses: mamba-org/setup-micromamba@v2
         with:
-          python-version: '3.11'
+          environment-file: environment.yml
 
-      - name: Install dependencies
+      - name: Lint with ruff
+        shell: micromamba-shell {0}
         run: |
-          python -m pip install --upgrade pip
-          pip install numpy pandas jupyterlab matplotlib seaborn scipy statsmodels nbconvert
+          ruff check .
+          ruff format --check .
 
       - name: Run notebook
+        shell: micromamba-shell {0}
         run: |
           jupyter nbconvert --to notebook --execute --inplace project.ipynb
 

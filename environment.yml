@@ -8,5 +8,7 @@ dependencies:
 - seaborn
 - scipy
 - statsmodels
+- ruff
+- pre-commit
+- nbconvert
 - pip
-- pip:
